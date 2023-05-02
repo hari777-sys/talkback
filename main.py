@@ -1,6 +1,6 @@
 a=10
 b=0
-if a>b;
+if a>b:
    print("hello")
-else;
+else:
    print("bye")
