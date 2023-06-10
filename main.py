@@ -1,10 +1,10 @@
-import speech_recognition as sr
-listener = sr.Recognizer()
-try:
-    with sr.Microphone() as source:
-        print('listening')
-        voice = listener.listen(source)
-        command = listener.recognize_google(voice)
-        print(command)
-except Exception:
-    print('not working')
+import pyttsx3
+engine = pyttsx3.init('espeak')
+voices = engine.getProperty('voices')
+engine.setProperty('voice' ,voices[12].id)
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
+
+if __name__ == '__main__':
+    speak('vanakam    daa    maapla')
