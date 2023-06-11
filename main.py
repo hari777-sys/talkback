@@ -1,5 +1,7 @@
 import pyttsx3
 import speech_recognition as sr
+import subprocess
+
 engine = pyttsx3.init('espeak')
 voices = engine.getProperty('voices')
 engine.setProperty('voice' ,voices[15].id)
@@ -20,6 +22,13 @@ def takecommand():
     except Exception as e:
         print(e)
         speak('say  that   again')
+    return query
 if __name__ == '__main__':
-    speak('vanakam    daa    maapla')
-    takecommand()
+    speak('vanakam   daa    maapla')
+    while True:
+        query = takecommand().lower()
+        if 'open firefox' in query:
+            subprocess.Popen(['firefox'])
+
+
+
